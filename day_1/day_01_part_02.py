@@ -11,5 +11,6 @@ if __name__ == '__main__':
     for i in find_most_calories(cal_dict=elf_dict, number=3):
         calories += i[1]
 
+    print(elf_dict)
     print(calories)
 

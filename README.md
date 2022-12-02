@@ -7,3 +7,4 @@ I'm writing it in python... because screw all other languages
 | Puzzle | Python |
 |--------|--------|
 | Day 1 | :star: :star: |
+| Day 2 | :star: :star: |

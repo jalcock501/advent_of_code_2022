@@ -14,20 +14,21 @@ def create_elf_dict(input_file: str) -> dict:
     Returns:
         elves_calories -- dict of lists
     '''
-    elves_calories = {} # dictionary of elves and calories
     with open(input_file, 'r') as input_data:
         lines = input_data.readlines()
-        elf_count = 1  # start count at 1
-        elf_calories = []
-        for line in lines:  # iterate over lines in file
-            if line in ['\n', '\r\n']: # if blank line new elf and empty list
-                elf_count += 1
-                elf_calories = []
-            else:
-                elf_calories.append(int(line.strip('\n'))) # strip \n and cast to integer
 
-            elves_calories[f'elf_{elf_count}'] = elf_calories  # create or update dictionary with elf and calories
-        
+    elves_calories = {} # dictionary of elves and calories
+    elf_count = 1  # start count at 1
+    elf_calories = []
+    for line in lines:  # iterate over lines in file
+        if line in ['\n', '\r\n']: # if blank line new elf and empty list
+            elf_count += 1
+            elf_calories = []
+        else:
+            elf_calories.append(int(line.strip('\n'))) # strip \n and cast to integer
+
+        elves_calories[f'elf_{elf_count}'] = elf_calories  # create or update dictionary with elf and calories
+    
     return elves_calories
         
 def calculate_calories(cal_dict: dict) -> dict:
@@ -58,7 +59,7 @@ def find_most_calories(cal_dict: dict, number: int) -> list[tuple]:
 
 if __name__ == '__main__':
 
-    file_name = "input.txt"
+    file_name = "day_1/input.txt"
     elf_dict = calculate_calories(create_elf_dict(input_file=file_name))
     calories_dense_elf = find_most_calories(cal_dict=elf_dict, number=1)
     print(f"The elf carring the most calories is {calories_dense_elf[0][0]} with a total of {calories_dense_elf[0][1]} cals")
