@@ -73,18 +73,15 @@ def move_crates(crates: dict[list], amount: int, _from:int, _to:int, mover:int) 
     Returns:
         crates: dictionary of lists containing stack info
     '''
-    if mover == 9000:
-        for i in range(amount):
-            crates[_to].append(crates[_from][-1])
-            del crates[_from][-1]
+    moving = []
+    for i in range(amount):
+        moving.append(crates[_from][-1])
+        del crates[_from][-1]
     
     if mover == 9001:
-        moving = []
-        for i in range(amount):
-            moving.append(crates[_from][-1])
-            del crates[_from][-1]
-        
-        crates[_to].extend(reversed(moving))
+        moving = reversed(moving)
+
+    crates[_to].extend(moving)
         
     return crates
 
